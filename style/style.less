@@ -1,4 +1,5 @@
 //paleta
+
 @font-face {
   font-family: 'OldEnglish';
   src: url('../font/OldeEnglish.eot'); /* IE9 Compat Modes */
@@ -8,15 +9,14 @@
        url('../font/OldeEnglish.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../font/OldeEnglish.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
-
-@primary-background-color: #3A0B7F;
+@primary-background-color: #3E4059;
 @primary-ligth-background-color: rgba(58, 11, 127,0.3);
 @second-background-color: #7416FF;
 @third-background-color: #5D11CC;
 
-@dafault-font-color:#5D11CC;
-@dafault-font-active-color:#7416FF;
-@dafault-font-disabled-color:#7416FF;
+@dafault-font-color:#BF0FE5;
+@dafault-font-active-color:#9F0CBF;
+@dafault-font-disabled-color:#D410FF;
 
 @second-font-color:#7416FF;
 @third-font-color:#3A0B7F;
@@ -31,9 +31,9 @@
 @second-font-size:40;
 @third-font-size:50;
 
-@back-ground-default:url(../img/circuito.jpg);
+@back-ground-default:url(../img/fundoCircuito.png);
 @back-ground-enfeite:url(../img/fundo-enfeitado.png);
-@back-ground-cardapio:url(../img/circuito.jpg);
+@back-ground-cardapio:url(../img/fundoCircuito.png);
 @back-ground-footer:url(../img/recorte-madeira-escuro.jpg);
 
 @full-page-min-height: 250px;
@@ -44,18 +44,54 @@
 	font-family: ~"@{@{definition}-font-family}";
 	font-size: ~"@{@{definition}-font-size}";
 }
+.fundoTransicao{
+	background: linear-gradient(270deg,#6190E8,#A7BFE8);
+	background-size: 400% 400%;
+
+	-webkit-animation: AnimationName 25s ease infinite;
+	-moz-animation: AnimationName 25s ease infinite;
+	animation: AnimationName 25s ease infinite;
+
+	@-webkit-keyframes AnimationName {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@-moz-keyframes AnimationName {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@keyframes AnimationName {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+}
 .one-page-header{
 	padding:0px;
 	padding-top:13%;
 	min-height: 550px;
 	width: 100%;
-	background-image: @back-ground-default;
-	background-size: cover;
 	position: relative;
 	display:block;
 	text-align: center;
 	color:white;
 	font-family:@dafault-font-family;
+	.fundoTransicao;
+}
+.one-page-header img{
+	width:100%; 
+	margin-top:-14%;
+}
+.one-page-header .floatText{
+	position: absolute;
+	top:40%;
+	width:50%;
+	background-color: @primary-ligth-background-color;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .one-page-content-primary{
 	padding:@full-page-padding;

@@ -1,13 +1,13 @@
 //paleta
 
 @font-face {
-  font-family: 'OldEnglish';
-  src: url('../font/OldeEnglish.eot'); /* IE9 Compat Modes */
-  src: url('../font/OldeEnglish.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../font/OldeEnglish.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../font/OldeEnglish.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../font/OldeEnglish.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../font/OldeEnglish.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-family: 'RhumbaScriptNF';
+  src: url('../font/RhumbaScriptNF.eot?#iefix') format('embedded-opentype'),  
+		url('../font/RhumbaScriptNF.woff') format('woff'), 
+		url('../font/RhumbaScriptNF.ttf')  format('truetype'), 
+		url('../font/RhumbaScriptNF.svg#RhumbaScriptNF') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 @primary-background-color: #3E4059;
 @primary-ligth-background-color: rgba(58, 11, 127,0.3);
@@ -23,9 +23,9 @@
 @text-font-color:#FFF;
 
 
-@dafault-font-family:"OldEnglish";
-@second-font-family:"sans-serif";
-@third-font-family:"sans-serif";
+@dafault-font-family:'RhumbaScriptNF', sans-serif;
+@second-font-family:'Open Sans', sans-serif;
+@third-font-family:'Great Vibes', cursive;
 
 @dafault-font-size:20;
 @second-font-size:40;
@@ -48,9 +48,9 @@
 	background: linear-gradient(270deg,#6190E8,#A7BFE8);
 	background-size: 400% 400%;
 
-	-webkit-animation: AnimationName 25s ease infinite;
-	-moz-animation: AnimationName 25s ease infinite;
-	animation: AnimationName 25s ease infinite;
+	-webkit-animation: AnimationName 15s ease infinite;
+	-moz-animation: AnimationName 15s ease infinite;
+	animation: AnimationName 15s ease infinite;
 
 	@-webkit-keyframes AnimationName {
 		0%{background-position:0% 50%}
@@ -68,6 +68,23 @@
 		100%{background-position:0% 50%}
 	}
 }
+
+body{
+	font-family:@dafault-font-family;
+}
+
+.shaddow{
+	filter: drop-shadow(0px 20px 10px #77797F);
+}
+.shaddow2{
+	filter: drop-shadow(7px 7px 5px #121314);
+}
+
+.one-page-content-primary .card{
+	background-color:@second-background-color;
+	.shaddow2;
+}
+
 .one-page-header{
 	padding:0px;
 	padding-top:13%;
@@ -77,7 +94,7 @@
 	display:block;
 	text-align: center;
 	color:white;
-	font-family:@dafault-font-family;
+	font-family:@second-font-family;
 	.fundoTransicao;
 }
 .one-page-header img{
@@ -103,6 +120,7 @@
 	background-image: @back-ground-enfeite;
 	background-repeat: repeat-y;
 	color:@text-font-color;
+	.shaddow
 }
 
 .one-page-content-second{
@@ -153,14 +171,14 @@
 }
 
 .navbar-custom{
-	font-family:@dafault-font-family;
+	font-family:@second-font-family;
 	color:@dafault-font-color;
 }
 .navbar-custom .dropdown .dropdown-menu{
 	background-color:#fef6a5;
 }
 .navbar-custom .dropdown .dropdown-menu .dropdown-item{
-	font-family:@second-font-family;
+	font-family:@dafault-font-family;
 	color:@dafault-font-color;
 }
 .navbar-custom .navbar-brand{
@@ -182,22 +200,6 @@
 	font-size:400%;
 	color:@dafault-font-color;
 	font-family:@dafault-font-family;
-}
-
-.one-page-header-cardapio{
-	padding:0px;
-	margin-top:-5%;
-	padding-top:20%;
-	padding-bottom:5%;
-	min-height: 250px;
-	width: 100%;
-	background-image: @back-ground-cardapio;
-	background-size: cover;
-	position: relative;
-	display:block;
-	text-align: center;
-	font-family:@dafault-font-family;
-	color:white;
 }
 
 .one-page-cardapio{

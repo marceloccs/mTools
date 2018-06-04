@@ -1,14 +1,8 @@
-//paleta
+//importação
+@import "transition-background.less";
+@import "neon.less";
 
-@font-face {
-  font-family: 'RhumbaScriptNF';
-  src: url('../font/RhumbaScriptNF.eot?#iefix') format('embedded-opentype'),  
-		url('../font/RhumbaScriptNF.woff') format('woff'), 
-		url('../font/RhumbaScriptNF.ttf')  format('truetype'), 
-		url('../font/RhumbaScriptNF.svg#RhumbaScriptNF') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+//paleta
 @primary-background-color: #3E4059;
 @primary-ligth-background-color: rgba(58, 11, 127,0.3);
 @second-background-color: #7416FF;
@@ -21,68 +15,63 @@
 @second-font-color:#7416FF;
 @third-font-color:#3A0B7F;
 @text-font-color:#FFF;
+//Fim de paleta
 
-
+//Font Family custom
+@font-face {
+  font-family: 'RhumbaScriptNF';
+  src: url('../font/RhumbaScriptNF.eot?#iefix') format('embedded-opentype'),  
+		url('../font/RhumbaScriptNF.woff') format('woff'), 
+		url('../font/RhumbaScriptNF.ttf')  format('truetype'), 
+		url('../font/RhumbaScriptNF.svg#RhumbaScriptNF') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 @dafault-font-family:'RhumbaScriptNF', sans-serif;
 @second-font-family:'Open Sans', sans-serif;
 @third-font-family:'Great Vibes', cursive;
+//Fim de font Family
 
+//Contantes
+
+//	Tamnho de fonte
 @dafault-font-size:20;
 @second-font-size:40;
 @third-font-size:50;
 
+//	Imagens de fundo
 @back-ground-default:url(../img/fundoCircuito.png);
-@back-ground-enfeite:url(../img/fundo-enfeitado.png);
-@back-ground-cardapio:url(../img/fundoCircuito.png);
+
+//@back-ground-enfeite:url(../img/fundo-enfeitado.png);
+@back-ground-me:url(../img/fundoCircuito.png);
 @back-ground-footer:url(../img/recorte-madeira-escuro.jpg);
 
+//tamanho de pagina
 @full-page-min-height: 250px;
 @full-page-padding: 3% 5%;
+@cardHeigth: 100%;
 
-.getDefaultValues(@definition) { 
-	color: ~"@{@{definition}-font-color}";
-	font-family: ~"@{@{definition}-font-family}";
-	font-size: ~"@{@{definition}-font-size}";
-}
-.fundoTransicao{
-	background: linear-gradient(270deg,#6190E8,#A7BFE8);
-	background-size: 400% 400%;
-
-	-webkit-animation: AnimationName 15s ease infinite;
-	-moz-animation: AnimationName 15s ease infinite;
-	animation: AnimationName 15s ease infinite;
-
-	@-webkit-keyframes AnimationName {
-		0%{background-position:0% 50%}
-		50%{background-position:100% 50%}
-		100%{background-position:0% 50%}
-	}
-	@-moz-keyframes AnimationName {
-		0%{background-position:0% 50%}
-		50%{background-position:100% 50%}
-		100%{background-position:0% 50%}
-	}
-	@keyframes AnimationName {
-		0%{background-position:0% 50%}
-		50%{background-position:100% 50%}
-		100%{background-position:0% 50%}
-	}
-}
-
-body{
-	font-family:@dafault-font-family;
-}
-
+//Sobras
 .shaddow{
 	filter: drop-shadow(0px 20px 10px #77797F);
 }
 .shaddow2{
 	filter: drop-shadow(7px 7px 5px #121314);
 }
+//Fim de constantes
+
+body{
+	font-family:@dafault-font-family;
+}
+
+.margin-top-p{
+	margin-top:15px;
+}
 
 .one-page-content-primary .card{
 	background-color:@second-background-color;
 	.shaddow2;
+	height: @cardHeigth;
 }
 
 .one-page-header{
@@ -95,8 +84,13 @@ body{
 	text-align: center;
 	color:white;
 	font-family:@second-font-family;
-	.fundoTransicao;
+	.buildTransitionOneColor(#6190E8, #A7BFE8,15s);
 }
+.motionColor{
+	height:100px;
+	.buildTransitionOneColor(#c31432, #240b36,15s);
+}
+
 .one-page-header img{
 	width:100%; 
 	margin-top:-14%;
@@ -117,7 +111,7 @@ body{
 	position: relative;
 	display:block;
 	background-color:@primary-background-color;
-	background-image: @back-ground-enfeite;
+	//background-image: @back-ground-enfeite;
 	background-repeat: repeat-y;
 	color:@text-font-color;
 	.shaddow
@@ -202,25 +196,26 @@ body{
 	font-family:@dafault-font-family;
 }
 
-.one-page-cardapio{
+.one-page-me{
 	padding:0px;
 	padding-top:5%;
 	padding-bottom:5%;
 	min-height: 500px;
 	width: 100%;
-	background-image: @back-ground-cardapio;
+	background-image: @back-ground-me;
 	background-size: cover;
 	position: relative;
 	display:block;
 	text-align: center;
 	font-family:@dafault-font-family;
-}
-.one-page-cardapio h3{
-	font-size:400%;
-	width:100%;
-	color:white;
-	text-align: center;
-	font-family:@dafault-font-family;
+	
+	h3{
+		font-size:400%;
+		width:100%;
+		color:white;
+		text-align: center;
+		font-family:@dafault-font-family;
+	}
 }
 .one-page-footer{
 	padding:0px;
@@ -235,16 +230,16 @@ body{
 	color:white;
 	font-family:@second-font-family;
 	font-size:150%;
-}
-.one-page-footer a{
-	color:#fff;
-	text-decoration:none;
-}
-.one-page-footer a:hover{
-	color:#cccccc;
-}
-.one-page-footer a:visited{
-	color:#fff;
+	a{
+		color:#fff;
+		text-decoration:none;
+		&:hover{
+			color:#cccccc;
+		}
+		&:visited{
+			color:#fff;
+		}
+	}
 }
 .alinhadoDireita{
 	text-align:right;
@@ -252,40 +247,32 @@ body{
 .alinhadoEsquerda{
 	text-align:left;
 }
-.cardapio-opcao img{
-	border-color:#fff;
-	border-style: solid;
-	border-width: 5px;
-	cursor:pointer;
-}
 
-.cardapio-opcao p{
-	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-	width: 100%;
-	font-size:400%;
-	color:white;
-	cursor:pointer;
-}
-
-.cardapio-opcao img:hover{
-	border-color:#000;
-	border-style: solid;
-	border-width: 5px;
-	-webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
-    filter: blur(2px);
-}
-
-.custom-table{
-	width:100%;
-}
-.custom-table tbody tr:nth-child(even) {
-    background-color: @primary-ligth-background-color;
-}
-.custom-table tfooter tr{
-	background-color: @primary-ligth-background-color;
+.meImage{
+	img{
+		border-color:#fff;
+		border-style: solid;
+		border-width: 5px;
+		cursor:pointer;
+		&:hover{
+			border-color:#000;
+			border-style: solid;
+			border-width: 5px;
+			-webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+			filter: blur(2px);
+		}
+	}
+	
+	p{
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		width: 100%;
+		font-size:400%;
+		color:white;
+		cursor:pointer;
+	}
 }
 
 @-webkit-keyframes bounceInRight {
@@ -321,7 +308,7 @@ body{
 	animation-name: bounceInRight;
 }
 
-
+//trsições 
 @keyframes bounceInLeft {
    0% {
       opacity: 0;
@@ -429,7 +416,4 @@ body{
 	.navbar-custom-transition-bg .navbar-brand{
 		width: 110px;
 	}
-}
-@media screen and (max-width: 1200px) {
-  
 }

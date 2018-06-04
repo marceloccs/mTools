@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'College';
+    src: url('../font/College.eot');
+    src: url('../font/College.eot?#iefix') format('embedded-opentype'),
+        url('../font/College.woff2') format('woff2'),
+        url('../font/College.woff') format('woff'),
+        url('../font/College.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@principalFont : College;
+@principalColor: #325bad;
+@onColor: #fff;
+@offColor: #1e1e1e;
+@animated: 1;
+
+.on{
+	color: rgba(0,0,0,0);
+	-webkit-text-stroke: 2px @onColor;
+    text-shadow: 0 0 5px @onColor, 0 0 10px @onColor, 0 0 20px @principalColor, 0 0 30px @principalColor, 0 0 40px @principalColor, 0 0 55px @principalColor, 0 0 75px @principalColor;
+}
+.off{
+	color: rgba(0,0,0,0);
+	-webkit-text-stroke: 3px #1e1e1e;
+	text-shadow: none;
+}
+
+@keyframes blink {
+  10%{
+	.on;
+  }
+  20% {
+    .off;
+  }
+  30%{
+	.on;
+  }
+  50% {
+    .off;
+  }
+  80% {
+    .off;
+  }
+  90%{
+	.on;
+  }
+  100%{
+	.on;
+  }
+}
+.animation{
+	animation-duration: 1s;
+	animation-name: blink;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+.neon{
+	font-size: 60px;
+	font-family: @principalFont;
+	text-align: center;
+	.on;
+	.animation;
+}

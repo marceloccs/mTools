@@ -1,0 +1,35 @@
+@corFundoOrigem;
+@corFundoDestino;
+@corFundoDestinoSegundo;
+@corFundoDestinoTerceiro;
+@corFundoDestinoQuarto;
+
+.buildTransitionOneColor(@colorPrimary, @colorSecond,@time) {
+	@backgroundSize : 400%;
+	@linearGradient : linear-gradient(270deg,@colorPrimary,@colorSecond);
+    .fundoTransicao(@linearGradient,@backgroundSize,@time);
+}
+.fundoTransicao(@linear-gradient:linear-gradient(270deg,#6190E8,#A7BFE8),@background-size:400%,@time:15s){
+	background: @linear-gradient;
+	background-size: @background-size @background-size;
+
+	-webkit-animation: AnimationColor @time ease infinite;
+	-moz-animation: AnimationColor @time ease infinite;
+	animation: AnimationColor @time ease infinite;
+
+	@-webkit-keyframes AnimationColor {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@-moz-keyframes AnimationColor {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@keyframes AnimationColor {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+}
